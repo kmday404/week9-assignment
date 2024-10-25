@@ -9,9 +9,9 @@ export default async function UserPage() {
     <>
       <h1>User page</h1>
       <h2>
-        Welcome, {user.firstName} {user.lastName}
+        Welcome, {user?.firstName} {user?.lastName}
       </h2>
-      <p>{user.emailAdresses[0].emailAddresses}</p>
+      <p>{user?.emailAdresses[0].emailAddresses}</p>
     </>
   );
 }

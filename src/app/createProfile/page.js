@@ -6,6 +6,8 @@
 //we need to redirect the user to the homepage once they submit the profile form
 //A suggestion: you could have a try and catch for your sql query
 
+//currentUser is the current user logged in - you can import this from clerk???? ?
+
 export default function CreateProfilePage() {
   return (
     <>
