@@ -10,6 +10,8 @@ import {
 import { auth } from "@clerk/nextjs/server";
 
 export default function Header() {
+  //we can destructure the userId from clerk auth
+  //this userId can be saved to your database, so you can match user with posts (one to many)
   const { userId } = auth();
   return (
     <>
