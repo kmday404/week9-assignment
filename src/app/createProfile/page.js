@@ -8,7 +8,23 @@
 
 //currentUser is the current user logged in - you can import this from clerk???? ?
 
-export default function CreateProfilePage() {
+import { currentUser } from "@clerk/nextjs/server";
+
+import pg from "pg";
+
+export default async function CreateProfilePage({ params }) {
+  const db = new pg.Pool({
+    connectionString: process.env.NEXT_PUBLIC_DATABASE_URL,
+  });
+
+  await db.query(`INSERT INTO users (username, clerk_key) VALUES ($1, $2)`, [
+    currentUser.username,
+    currentUser.id,
+  ]);
+  // revalidatePath(`/`);
+  // redirect(`/`);
+  console.log(currentUser.id);
+
   return (
     <>
       <h1>create profile</h1>

@@ -9,10 +9,10 @@ import {
 
 import { auth } from "@clerk/nextjs/server";
 
-export default function Header() {
+export default async function Header() {
   //we can destructure the userId from clerk auth
   //this userId can be saved to your database, so you can match user with posts (one to many)
-  const { userId } = auth();
+  const { userId } = await auth();
   return (
     <>
       <h1 className="flex flex-col items-center text-4xl">header component</h1>
@@ -20,8 +20,9 @@ export default function Header() {
         <Link href="/" className="">
           Home
         </Link>
-        {/* <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link> */}
+        <Link href="/posts">Posts</Link>
+        <Link href={`/users/${userId}`}>Profile</Link>
+        {/* <Link href="/about">ABOUT</Link> */}
       </nav>
 
       <SignedIn>
