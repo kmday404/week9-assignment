@@ -12,3 +12,6 @@
   # set up your app folder
 
   # set up Clerk
+
+![screenshot](./screenshots/schema.png)
+![screenshot](./screenshots/table.png)
